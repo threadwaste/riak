@@ -179,6 +179,10 @@ security_admin()
             fi
             $NODETOOL rpc riak_core_console print_user "$@"
             ;;
+        ciphers)
+            shift
+            $NODETOOL rpc riak_core_console ciphers "$@"
+            ;;
         *)
             echo "\
 Usage: $SCRIPT security <command>
@@ -192,6 +196,7 @@ The following commands modify users and security ACLs for Riak:
     print-users
     print-sources
     print-user <user>
+    ciphers [cipherlist]
 "
     esac
 }
